@@ -48,12 +48,18 @@ For the motion characteristics at the initial stage of falling of elderly users 
 ## Model  
 This project uses a concise designed, deep learning model based on the TensorFlow framework.   
 ### Model architecture:  
-The model uses a Sequential structure and contains three fully connected layers (Dense layers): 
-1)The input layer receives 54 feature data.
-2)The first dense layer has 16 neurons with ReLU activation function and L1 regularisation. 
-3)The Dropout layer with a dropout rate of 0.3.
-4)The second dense layer has 8 neurons, also using the ReLU activation function and L1 regularisation. 
+The model uses a Sequential structure and contains three fully connected layers (Dense layers):  
+
+1)The input layer receives 54 feature data.  
+
+2)The first dense layer has 16 neurons with ReLU activation function and L1 regularisation.  
+
+3)The Dropout layer with a dropout rate of 0.3.  
+
+4)The second dense layer has 8 neurons, also using the ReLU activation function and L1 regularisation.   
+
 5)The output layer uses the Softmax activation function for outputting classification probabilities.   
+
 <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/NN.png"  alt="yellow" style="width: 500px; height: auto;">  
 
 Since I found during the experiment that the model continuously produced the phenomenon of overfitting, on the basis of appropriately reducing the learning rate and adding more data to the training dataset, I attempted to add a Dropout layer between the first and the second dense layer, enhancing the generalization ability of the model.  
