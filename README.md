@@ -30,11 +30,13 @@ To ensure data diversity, the data of this project is collected in three ways:
 1) The experimental team members (the author and 6 classmates) simulated a variety of real fall postures (e.g., forward, backward, sideways) to collect 192 samples.
 2) 21 sample data of fall/stand actions were obtained from the open-source dataset.
 3) 81 samples were collected by directly throwing the Arduino board to simulate sudden impact.
+   
 In order to enhance data authenticity, the standing samples were additionally collected with disturbance data from daily activities (e.g., slight swaying and slow walking) in addition to the stationary state, covering the typical behavioral patterns of the elderly.
 <div style="display: flex; justify-content: space-between;">
   <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fall%20data.png" alt="Project 1" style="width: 300px; height: auto; transform: rotate(-90deg); transform-origin: center;">
   <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/stand%20data.png" alt="Project 2" style="width: 300px; height: auto;">
 </div>
+
 ### Data pre-processing:   
 For the motion characteristics at the initial stage of falling of elderly users (e.g., slow shift of the center of gravity), their low-frequency acceleration patterns (0-5Hz) are significantly different from normal standing posture. Therefore, the Low-pass Filter is used in this project and the cut-off frequency is set to 5Hz to retain the key low-frequency components of the elderly fall movement and improve the recognition accuracy of the model.  
 <div style="display: flex; justify-content: space-between;">
