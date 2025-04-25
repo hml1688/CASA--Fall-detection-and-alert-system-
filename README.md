@@ -30,8 +30,18 @@ To ensure data diversity, the data of this project is collected in three ways:
 2) 21 sample data of fall/stand actions were obtained from the open-source dataset.
 3) 81 samples were collected by directly throwing the Arduino board to simulate sudden impact.
 In order to enhance data authenticity, the standing samples were additionally collected with disturbance data from daily activities (e.g., slight swaying and slow walking) in addition to the stationary state, covering the typical behavioral patterns of the elderly.
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fall%20data.png" alt="Project 1" style="width: 300px; height: auto; transform: rotate(-90deg); transform-origin: center;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/stand%20data.png" alt="Project 2" style="width: 300px; height: auto;">
+</div>
 ### Data pre-processing:   
 For the motion characteristics at the initial stage of falling of elderly users (e.g., slow shift of the center of gravity), their low-frequency acceleration patterns (0-5Hz) are significantly different from normal standing posture. Therefore, the Low-pass Filter is used in this project and the cut-off frequency is set to 5Hz to retain the key low-frequency components of the elderly fall movement and improve the recognition accuracy of the model.  
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fall%20data%20-%20after%20filter.png" alt="Project 1" style="width: 400px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/stand%20data%20-%20after%20filter.png" alt="Project 2" style="width: 400px; height: auto;">
+</div>
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/spectral%20features.png"  alt="yellow" style="width: 400px; height: auto;">  
+
 ## Model  
 This project uses a concise designed, deep learning model based on the TensorFlow framework.   
 ### Model architecture:  
@@ -41,6 +51,8 @@ The model uses a Sequential structure and contains three fully connected layers 
 3)The Dropout layer with a dropout rate of 0.3.
 4)The second dense layer has 8 neurons, also using the ReLU activation function and L1 regularisation. 
 5)The output layer uses the Softmax activation function for outputting classification probabilities.   
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/NN.png"  alt="yellow" style="width: 500px; height: auto;">  
+
 Since I found during the experiment that the model continuously produced the phenomenon of overfitting, on the basis of appropriately reducing the learning rate and adding more data to the training dataset, I attempted to add a Dropout layer between the first and the second dense layer, enhancing the generalization ability of the model.  
 ### Training parameters:  
 Number of training cycles: 40  
@@ -55,8 +67,11 @@ Finally, during the deployment phase, the model was converted to TensorFlow Lite
 ## Experiments  
 ### 1.Sampling frequency  
 In the initial experiment, the data sampling frequency was set to 100Hz to the subtle signal changes of the falling action. However, this resulted in the number of raw features up to 1,800 per sample (9 × 2s × 100Hz = 1,800 points), and such a large amount of data may put considerable pressure on the memory and processing performance of the Arduino. In contrast, this quantity was reduced to 1125 (9 × 2s × 62.5Hz = 1125) when the sampling frequency was adjusted to 62.5Hz. In the comparison experiments, it was found that there was no significant difference in model accuracy between the two sampling frequencies. Therefore, considering the data volume and performance factors comprehensively, 62.5Hz was finally selected as the sampling frequency to optimize the system performance.  
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/sampling%20frequency.png"  alt="yellow" style="width: 500px; height: auto;">  
 From the test result of 62.5 Hz, the model showed an underfitting situation. Based on the expansion of the dataset, attempts were made to modify the Spectral Features to better capture the periodic and frequency information in the data and improve the discrimination accuracy of the model.  
 ### 2.Spectral Features  
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/spectral%20features%20changes.png"  alt="yellow" style="width: 700px; height: auto;">  
+
 Based on the above experimental process, and since the fall process of the elderly often shows a progressive imbalance pattern dominated by the low-frequency domain, it is concluded that the data features processed by the low-pass filter have more obvious differences and higher test accuracy. As a result, it was decided to adopt this feature mode. However, 100% accuracy may suggest overfitting, which is detrimental to the generalization of the model to new data. Therefore, the neural network settings will be subsequently adjusted to optimize the model performance.  
 ### 3.Neuron Network Settings  
 Finally, the model complexity was reduced by decreasing the number of neurons, and the data set was also increased. As a result, both the training and test accuracy rates reached 100%. At this point, by observing the changes in the specific accuracy and loss values during the training process, it was seen that the model's accuracy tended to stabilize at epochs 38-40. Therefore, the 100% accuracy at this time showed no obvious signs of overfitting and could be adopted.  
