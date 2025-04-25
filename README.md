@@ -73,15 +73,47 @@ From the test result of 62.5 Hz, the model showed an underfitting situation. Bas
 <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/spectral%20features%20changes.png"  alt="yellow" style="width: 700px; height: auto;">  
 
 Based on the above experimental process, and since the fall process of the elderly often shows a progressive imbalance pattern dominated by the low-frequency domain, it is concluded that the data features processed by the low-pass filter have more obvious differences and higher test accuracy. As a result, it was decided to adopt this feature mode. However, 100% accuracy may suggest overfitting, which is detrimental to the generalization of the model to new data. Therefore, the neural network settings will be subsequently adjusted to optimize the model performance.  
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/incorrect%20standing%20data1.png" alt="Project 1" style="width: 300px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/incorrect%20standing%20data2.png" alt="Project 2" style="width: 300px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/incorrect%20standing%20data3.png" alt="Project 2" style="width: 300px; height: auto;">
+</div>  
+Three standing actions with incorrect judgments  
+
 ### 3.Neuron Network Settings  
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/NN%20settings1.png" alt="Project 2" style="width: 900px; height: auto;">
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/NN%20settings2.png" alt="Project 2" style="width: 900px; height: auto;">  
+
 Finally, the model complexity was reduced by decreasing the number of neurons, and the data set was also increased. As a result, both the training and test accuracy rates reached 100%. At this point, by observing the changes in the specific accuracy and loss values during the training process, it was seen that the model's accuracy tended to stabilize at epochs 38-40. Therefore, the 100% accuracy at this time showed no obvious signs of overfitting and could be adopted.  
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/training%20details(cycle45).png" alt="Project 2" style="width: 650px; height: auto;">
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/training%20details(cycle40).png" alt="Project 2" style="width: 650px; height: auto;">  
+
 ## Results and Observations  
 The model prediction accuracy is stable, with close to 100% accuracy during training. After deployment, the model was able to accurately identify fall and stand movement categories and output detailed prediction probabilities.  
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/stand%20still.png" alt="Project 1" style="width: 300px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/sway%20and%20stand.png" alt="Project 2" style="width: 300px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fall.png" alt="Project 2" style="width: 300px; height: auto;">
+</div>  
+  <br>
 Here are the three suggestions received during the Final pitch, along with the corresponding improvements and reflections:    
+<br>  
+<br>
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/final%20pitch%20suggestions.png" alt="Project 2" style="width: 800px; height: auto;">  
+
 ### Effective work:   
 The tuning of the neural network for the neural network has yielded significant results, as is evident from the following two graphs of the classification results. The left one shows the classification before tuning, while the right one reflects the results after optimizing the training period, learning rate, network structure, and number of neurons. It can be seen that the adjusted model is able to identify the features of the two classes of actions more accurately and the category boundaries are clearer.  
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/previous%20data%20explorer.png" alt="Project 1" style="width: 400px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/data%20explorer%20after%20change%20NN.png" alt="Project 2" style="width: 400px; height: auto;">
+</div>  
+
 ### Limitations:  
 I observed that after deployment, the Arduino took much longer than the 2 seconds set by Edge Impulse to collect motion data, and actually took about 6 seconds. This may be because each time data is collected, the system needs to wait for all the sensors to be ready, and calling functions such as IMU.readAcceleration(), IMU.readGyroscope() and IMU.readMagneticField() will all introduce additional delays.  
+<br>  
+
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/time%20cost.png" alt="Project 2" style="width: 400px; height: auto;">
+
 ### Afterward, if I have enough time, I will:   
 1. Collect more types (e.g., walking, sitting) and amounts of data to enrich the dataset. This will help to improve the generalization ability of the model, making it a more comprehensive model for elderly movement monitoring.
 
