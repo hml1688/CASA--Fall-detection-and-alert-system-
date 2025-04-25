@@ -13,6 +13,7 @@ Based on this, this project proposes a fall detection and alert system (FallWatc
   <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fallwatch%20inside.jpg" alt="Project 1" style="width: 300px; height: auto; transform: rotate(-90deg); transform-origin: center;">
   <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fallwatch.jpg" alt="Project 2" style="width: 300px; height: auto;">
 </div>
+
 ## Research Question  
 How to utilize wearable technology and deep learning algorithms to develop a reliable and accurate real-time fall detection system for the elderly, so that their falls can be detected in time and their safety and independence can be enhanced.  
 ## Application Overview   
