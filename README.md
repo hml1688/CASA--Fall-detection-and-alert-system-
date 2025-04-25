@@ -140,6 +140,8 @@ I observed that after deployment, the Arduino took much longer than the 2 second
 4.Wikipedia (2025) Nyquist–Shannon sampling theorem. Available at: https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem (Accessed: 22 April 2025).  
 ## Declaration of Authorship  
 I, Jiajie Hao, confirm that the work presented in this assessment is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.  
+<br>
+
 Jiajie Hao  
 
 2025/4/21  
