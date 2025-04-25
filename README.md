@@ -95,7 +95,8 @@ Three standing actions with incorrect judgments
 <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/NN%20settings1.png" alt="Project 2" style="width: 900px; height: auto;">
 <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/NN%20settings2.png" alt="Project 2" style="width: 900px; height: auto;">  
 
-Finally, the model complexity was reduced by decreasing the number of neurons, and the data set was also increased. As a result, both the training and test accuracy rates reached 100%. At this point, by observing the changes in the specific accuracy and loss values during the training process, it was seen that the model's accuracy tended to stabilize at epochs 38-40. Therefore, the 100% accuracy at this time showed no obvious signs of overfitting and could be adopted.  
+Finally, the model complexity was reduced by decreasing the number of neurons, and the data set was also increased. As a result, both the training and test accuracy rates reached 100%. At this point, by observing the changes in the specific accuracy and loss values during the training process, it was seen that the model's accuracy tended to stabilize at epochs 38-40. Therefore, the 100% accuracy at this time showed no obvious signs of overfitting and could be adopted.  <br>
+
 <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/training%20details(cycle45).png" alt="Project 2" style="width: 650px; height: auto;">
 <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/training%20details(cycle40).png" alt="Project 2" style="width: 650px; height: auto;">  
 
