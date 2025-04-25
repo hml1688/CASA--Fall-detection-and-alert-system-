@@ -137,7 +137,7 @@ I observed that after deployment, the Arduino took much longer than the 2 second
 
 3.Maruf, Md., Haque, Md.M., Hasan, Md.M., Farhan, M. & Islam, A. (2025) State-of-the-Art Review on Fall Prediction among Older Adults: Exploring Edge Devices as a Promising Approach for the Future. Measurement: Sensors. 101878. doi:10.1016/j.measen.2025.101878.  
  
-4.Wikipedia (2025) Nyquist–Shannon sampling theorem. Available at: https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem (Accessed: 22 April 2025).  
+4.Wikipedia (2025) Nyquist–Shannon sampling theorem. Available at: https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem  (Accessed: 22 April 2025).  
 ## Declaration of Authorship  
 I, Jiajie Hao, confirm that the work presented in this assessment is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.  
 <br>
