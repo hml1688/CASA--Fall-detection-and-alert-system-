@@ -10,16 +10,21 @@ With increasing global aging, falls are frequent among older people (Soffer et a
 
 Based on this, this project proposes a fall detection and alert system (FallWatch). It collects motion data through a device fixed at the waist and uses deep learning algorithms to recognize both falling and normal standing postures. Once a fall is detected, the system will sound an alarm through a buzzer to alert nearby personnel to respond, providing more timely help and safety for the elderly. Initial tests show that the system can achieve almost 100% detection accuracy, validating its feasibility in real-time monitoring scenarios.  
 <div style="display: flex; justify-content: space-between;">
-  <img src="" alt="Project 1" style="width: 220px; height: auto;">
-  <img src="" alt="Project 2" style="width: 220px; height: auto;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fallwatch%20inside.jpg" alt="Project 1" style="width: 300px; height: auto; transform: rotate(-90deg); transform-origin: center;">
+  <img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/fallwatch.jpg" alt="Project 2" style="width: 300px; height: auto;">
 </div>
 ## Research Question  
 How to utilize wearable technology and deep learning algorithms to develop a reliable and accurate real-time fall detection system for the elderly, so that their falls can be detected in time and their safety and independence can be enhanced.  
 ## Application Overview   
-In the Main Loop, the FallWatch system uses the LSM9DS1 IMU module, which is included in the Arduino Nano 33 BLE Sense Board to continuously collect data from the 9-axis inertial sensor (accelerometer accX/Y/Z, gyroscope gyrX/Y/Z, magnetometer magX/Y/Z) at 62.5Hz. The original data first enters the pre-processing module. High-frequency noise is suppressed through a low-pass filter (with a cut-off frequency of 5Hz), and the energy features in the frequency domain are extracted by combining the Fast Fourier Transform (FFT) to enhance the recognition of sudden violent movements in fall events. The processed multimodal signals are fed into the TensorFlow Lite interpreter. It solidifies the pre-trained lightweight neural network model in the form of a static array in the embedded memory to achieve the distinction between two types of actions: "falling" and "standing". Ultimately, the detection responder takes the probabilities output by the model and displays the pose judgment via the serial output. If a fall is detected, the indicator buzzer will give a continuous alarm to call for help.  
+In the Main Loop, the FallWatch system uses the LSM9DS1 IMU module, which is included in the Arduino Nano 33 BLE Sense Board to continuously collect data from the 9-axis inertial sensor (accelerometer accX/Y/Z, gyroscope gyrX/Y/Z, magnetometer magX/Y/Z) at 62.5Hz. The original data first enters the pre-processing module. High-frequency noise is suppressed through a low-pass filter (with a cut-off frequency of 5Hz), and the energy features in the frequency domain are extracted by combining the Fast Fourier Transform (FFT) to enhance the recognition of sudden violent movements in fall events. The processed multimodal signals are fed into the TensorFlow Lite interpreter. It solidifies the pre-trained lightweight neural network model in the form of a static array in the embedded memory to achieve the distinction between two types of actions: "falling" and "standing". Ultimately, the detection responder takes the probabilities output by the model and displays the pose judgment via the serial output. If a fall is detected, the indicator buzzer will give a continuous alarm to call for help. 
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/application%20architecture.png"  alt="yellow" style="width: 500px; height: auto;">
+
 ## Data  
 ### Data Acquisition:  
 This project collects data from two movement modes (standing and falling), with a total duration of 9m 42s, obtaining a total of 294 samples (50% of each type). Each sample lasts for 2 seconds and the sampling frequency is 62.5Hz. The ratio of training and test sets is 79%-21%.  
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/dataset.png"  alt="yellow" style="width: 300px; height: auto;">  
+<img src="https://github.com/hml1688/CASA0018--Fall-detection-and-alert-system/blob/main/Images/sampling%20frequency%20desicions.png"  alt="yellow" style="width: 500px; height: auto;"> 
+
 To ensure data diversity, the data of this project is collected in three ways:
 1) The experimental team members (the author and 6 classmates) simulated a variety of real fall postures (e.g., forward, backward, sideways) to collect 192 samples.
 2) 21 sample data of fall/stand actions were obtained from the open-source dataset.
